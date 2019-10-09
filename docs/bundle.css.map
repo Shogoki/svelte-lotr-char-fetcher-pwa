@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../src/App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n\texport let name;\n\tlet character = {}\n\tfetchChar().then(char => character = char)\n\n\tasync function fetchChar() {\n\t\t//const url = \"https://the-one-api.herokuapp.com/v1/book\" //character\"\n\t\tconst url = \"https://the-one-api.herokuapp.com/v1/character\"\n\t\tconst header =\"Authorization: Bearer yrayQN-nPvr69xjie5bX\"\n\t\tconst response = await fetch(url, {\n\t\t\t//mode: 'same-origin', // no-cors, *cors, same-origin,\n\t\t\theaders: {'Authorization': 'Bearer yrayQN-nPvr69xjie5bX'}\n\t\t\t})\n\t\tconst characters = await response.json()\n\t\t//console.log(JSON.stringify(characters))\n\t\treturn characters.docs[Math.floor(Math.random() * characters.docs.length)]\n\t\t// \n\t\t\n\t}\n\tfunction clickButton() {\n\t\tfetchChar().then(char => character = char)\n\t}\n</script>\n\n<style>\n\t\n\th1 {\n\t\tcolor: goldenrod;\n\t\ttext-align: center\n\t}\n\t.container {\n\t\tdisplay:flex;\n\t\talign-items: center;\n\t\tjustify-content: center;\n\t\n\t}\n\t.character {\n\t\tflex: 1 1;\n\t\ttext-align: center;\n\t\tbackground: cornflowerblue;\n\t}\n</style>\n\n<h1>LOTR Character Fetcher</h1>\n<div class=\"container\">\n\t<div class=\"character\" >\t\t\n\t\t<h2>{character.name}</h2>\n\t\t<p>Realm: {character.realm}</p>\n\t\t<p>Race: {character.race}</p>\n\t\t<p>gender: {character.gender}</p>\n\t\t<button on:click={clickButton}>Fetch new Character</button>\n\t</div>\n\t\n</div>\n"
+  ],
+  "names": [],
+  "mappings": "AA0BC,EAAE,cAAC,CAAC,AACH,KAAK,CAAE,SAAS,CAChB,UAAU,CAAE,MAAM;CACnB,CAAC,AACD,UAAU,cAAC,CAAC,AACX,QAAQ,IAAI,CACZ,WAAW,CAAE,MAAM,CACnB,eAAe,CAAE,MAAM,AAExB,CAAC,AACD,UAAU,cAAC,CAAC,AACX,IAAI,CAAE,CAAC,CAAC,CAAC,CACT,UAAU,CAAE,MAAM,CAClB,UAAU,CAAE,cAAc,AAC3B,CAAC"
+}
