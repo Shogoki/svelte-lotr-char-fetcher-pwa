@@ -35,8 +35,8 @@
       }
     ],
     "start_url": "/",
-    "background_color": "#0f4115c1",
+    "background_color": "#0f4115",
     "display": "standalone",
     "scope": "/",
-    "theme_color": "#0f4115c1"
+    "theme_color": "#0f4115"
   }
